@@ -28,7 +28,15 @@ spec:
             image: {{ printf "%s:%s" $image.repository $image.tag | quote }}
             imagePullPolicy: {{ $image.pullPolicy | quote }}
             {{- end }}
+            {{- if eq .Values.kube.flavor "openshift" }}
+            securityContext:
+              runAsUser: 0
+            {{- end }}
             env:
+            {{- if eq .Values.kube.flavor "openshift" }}
+            - name: HOME
+              value: /root
+            {{- end }}
             - name: DATABASE_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:

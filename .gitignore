@@ -12,3 +12,6 @@ personal-setup
 /*values.yaml
 /output
 /tmp
+.vscode/
+template.out
+pkg/

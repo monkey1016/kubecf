@@ -23,6 +23,10 @@
       internal: {{ $port }}
     {{- end }}
     run:
+      security_context:
+        capabilities:
+          add:
+            - CAP_SETFCAP
       healthcheck:
         tcp_router:
           readiness:

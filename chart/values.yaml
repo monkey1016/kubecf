@@ -48,6 +48,11 @@ kube:
   # the user before installing kubecf.
   image_pull_secrets: []
 
+  # The Kubernetes flavor will be used to determine what implementation of security policies will be
+  # used. If it's not set, the default form of security policies will be used. Available options
+  # are 'kubernetes' and 'openshift', the default is 'kubernetes'.
+  flavor: kubernetes
+
 # Set to true to enable support for multiple availability zones.
 multi_az: false
 

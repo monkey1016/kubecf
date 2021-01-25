@@ -40,6 +40,11 @@
       quarks:
         bpm:
           processes: []
+          run:
+            security_context:
+              capabilities:
+                add:
+                  - CAP_SYS_CHROOT
     {{- else }}
 - type: remove
   path: /instance_groups/name=diego-cell/jobs/name={{ $stack_name }}-rootfs-setup?

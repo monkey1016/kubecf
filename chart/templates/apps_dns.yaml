@@ -144,6 +144,10 @@ spec:
           mountPath: /config
       containers:
       - name: apps-dns
+        {{- if eq .Values.kube.flavor "openshift" }}
+        securityContext:
+          runAsUser: 0
+        {{- end }}
         {{- with $image := $.Values.releases.apps_dns.image }}
         image: {{ printf "%s:%s" $image.repository $image.tag | quote }}
         {{- end }}

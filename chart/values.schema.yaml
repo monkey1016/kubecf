@@ -398,6 +398,11 @@ properties:
           default: {"$ref": "#/definitions/string_or_null"}
         additionalProperties: false
       storage_class: {"$ref": "#/definitions/string_or_null"}
+      flavor: 
+        type: string
+        enum:
+          - kubernetes
+          - openshift
     additionalProperties: false
 
   move_jobs:
